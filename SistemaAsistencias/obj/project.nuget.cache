@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mv2aDb+Du7Apr+gaFELZnupsHz4w0sy9UwSoJ4v/E2imnjWXo2LIizZjkE63000dBAYqUOY837BFcw9gvm6V4w==",
+  "dgSpecHash": "N3PLtfdoLM4oEWY3T0sWTvtn/OJ2DsoSbTVDkvwJo/TMDKkmQLA1lIPUKBEIViMHqWNPyrx+JFGtkjOHVyMnIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bryan\\Documents\\c#\\SistemaAsistencias\\SistemaAsistencias\\SistemaAsistencias.csproj",
+  "projectFilePath": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

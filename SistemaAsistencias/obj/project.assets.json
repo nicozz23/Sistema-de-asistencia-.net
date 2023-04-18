@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bryan\\Documents\\c#\\SistemaAsistencias\\SistemaAsistencias\\SistemaAsistencias.csproj",
+      "projectUniqueName": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
       "projectName": "SistemaAsistencias",
-      "projectPath": "C:\\Users\\Bryan\\Documents\\c#\\SistemaAsistencias\\SistemaAsistencias\\SistemaAsistencias.csproj",
+      "projectPath": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
       "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bryan\\Documents\\c#\\SistemaAsistencias\\SistemaAsistencias\\obj\\",
+      "outputPath": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
