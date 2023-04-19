@@ -42,16 +42,16 @@
             button1 = new Button();
             button8 = new Button();
             button13 = new Button();
-            button2 = new Button();
             BtnGuardarPersonal = new Button();
             button7 = new Button();
             BtnGuardarCambios = new Button();
             button5 = new Button();
             button6 = new Button();
             PanelCargos = new Panel();
+            btnGuardarCambiosC = new Button();
             txtSueldog = new TextBox();
             txtCargog = new TextBox();
-            button12 = new Button();
+            BtnGuardarC = new Button();
             flowLayoutPanel7 = new FlowLayoutPanel();
             lblAgregarPersonal = new Label();
             flowLayoutPanel4 = new FlowLayoutPanel();
@@ -67,12 +67,13 @@
             label14 = new Label();
             label13 = new Label();
             PanelRegistro = new Panel();
+            btnAgregarCargo = new Button();
+            DataListadoCargos = new DataGridView();
             label2 = new Label();
             txtSueldo = new TextBox();
             txtCargo = new TextBox();
             txtIdentificacion = new TextBox();
             txtNombres = new TextBox();
-            datalistadocargo = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -80,7 +81,7 @@
             panel7.SuspendLayout();
             PanelCargos.SuspendLayout();
             PanelRegistro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)datalistadocargo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataListadoCargos).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -224,15 +225,6 @@
             button13.Text = "Pagina Anterior";
             button13.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            button2.Location = new Point(799, 378);
-            button2.Name = "button2";
-            button2.Size = new Size(145, 36);
-            button2.TabIndex = 11;
-            button2.Text = "+ Agregar Cargo";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // BtnGuardarPersonal
             // 
             BtnGuardarPersonal.BackgroundImage = (Image)resources.GetObject("BtnGuardarPersonal.BackgroundImage");
@@ -312,17 +304,33 @@
             // PanelCargos
             // 
             PanelCargos.BackColor = SystemColors.InactiveCaption;
+            PanelCargos.Controls.Add(btnGuardarCambiosC);
             PanelCargos.Controls.Add(txtSueldog);
             PanelCargos.Controls.Add(txtCargog);
-            PanelCargos.Controls.Add(button12);
+            PanelCargos.Controls.Add(BtnGuardarC);
             PanelCargos.Controls.Add(flowLayoutPanel7);
             PanelCargos.Controls.Add(lblAgregarPersonal);
             PanelCargos.Controls.Add(flowLayoutPanel4);
             PanelCargos.Controls.Add(label11);
-            PanelCargos.Location = new Point(1309, 258);
+            PanelCargos.Location = new Point(1345, 258);
             PanelCargos.Name = "PanelCargos";
-            PanelCargos.Size = new Size(309, 243);
+            PanelCargos.Size = new Size(321, 243);
             PanelCargos.TabIndex = 20;
+            // 
+            // btnGuardarCambiosC
+            // 
+            btnGuardarCambiosC.BackgroundImage = (Image)resources.GetObject("btnGuardarCambiosC.BackgroundImage");
+            btnGuardarCambiosC.BackgroundImageLayout = ImageLayout.Stretch;
+            btnGuardarCambiosC.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnGuardarCambiosC.FlatStyle = FlatStyle.Flat;
+            btnGuardarCambiosC.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGuardarCambiosC.ForeColor = Color.White;
+            btnGuardarCambiosC.Location = new Point(162, 173);
+            btnGuardarCambiosC.Name = "btnGuardarCambiosC";
+            btnGuardarCambiosC.Size = new Size(140, 41);
+            btnGuardarCambiosC.TabIndex = 34;
+            btnGuardarCambiosC.Text = "Guardar*";
+            btnGuardarCambiosC.UseVisualStyleBackColor = true;
             // 
             // txtSueldog
             // 
@@ -331,6 +339,7 @@
             txtSueldog.Name = "txtSueldog";
             txtSueldog.Size = new Size(260, 22);
             txtSueldog.TabIndex = 33;
+            txtSueldog.KeyPress += txtSueldog_KeyPress;
             // 
             // txtCargog
             // 
@@ -340,20 +349,21 @@
             txtCargog.Size = new Size(260, 22);
             txtCargog.TabIndex = 32;
             // 
-            // button12
+            // BtnGuardarC
             // 
-            button12.BackgroundImage = (Image)resources.GetObject("button12.BackgroundImage");
-            button12.BackgroundImageLayout = ImageLayout.Stretch;
-            button12.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button12.FlatStyle = FlatStyle.Flat;
-            button12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button12.ForeColor = Color.White;
-            button12.Location = new Point(90, 174);
-            button12.Name = "button12";
-            button12.Size = new Size(140, 41);
-            button12.TabIndex = 19;
-            button12.Text = "Guardar";
-            button12.UseVisualStyleBackColor = true;
+            BtnGuardarC.BackgroundImage = (Image)resources.GetObject("BtnGuardarC.BackgroundImage");
+            BtnGuardarC.BackgroundImageLayout = ImageLayout.Stretch;
+            BtnGuardarC.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnGuardarC.FlatStyle = FlatStyle.Flat;
+            BtnGuardarC.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnGuardarC.ForeColor = Color.White;
+            BtnGuardarC.Location = new Point(16, 173);
+            BtnGuardarC.Name = "BtnGuardarC";
+            BtnGuardarC.Size = new Size(140, 41);
+            BtnGuardarC.TabIndex = 19;
+            BtnGuardarC.Text = "Guardar";
+            BtnGuardarC.UseVisualStyleBackColor = true;
+            BtnGuardarC.Click += BtnGuardarC_Click;
             // 
             // flowLayoutPanel7
             // 
@@ -478,7 +488,8 @@
             // PanelRegistro
             // 
             PanelRegistro.BackColor = SystemColors.ButtonHighlight;
-            PanelRegistro.Controls.Add(datalistadocargo);
+            PanelRegistro.Controls.Add(btnAgregarCargo);
+            PanelRegistro.Controls.Add(DataListadoCargos);
             PanelRegistro.Controls.Add(label2);
             PanelRegistro.Controls.Add(txtSueldo);
             PanelRegistro.Controls.Add(txtCargo);
@@ -500,13 +511,35 @@
             PanelRegistro.Controls.Add(BtnGuardarCambios);
             PanelRegistro.Controls.Add(button7);
             PanelRegistro.Controls.Add(BtnGuardarPersonal);
-            PanelRegistro.Controls.Add(button2);
             PanelRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PanelRegistro.Location = new Point(67, 116);
             PanelRegistro.Name = "PanelRegistro";
             PanelRegistro.Size = new Size(2047, 1165);
             PanelRegistro.TabIndex = 3;
             PanelRegistro.Paint += PanelRegistro_Paint;
+            // 
+            // btnAgregarCargo
+            // 
+            btnAgregarCargo.Location = new Point(801, 383);
+            btnAgregarCargo.Name = "btnAgregarCargo";
+            btnAgregarCargo.Size = new Size(145, 36);
+            btnAgregarCargo.TabIndex = 37;
+            btnAgregarCargo.Text = "+ Agregar Cargo";
+            btnAgregarCargo.UseVisualStyleBackColor = true;
+            btnAgregarCargo.Click += btnAgregarCargo_Click;
+            // 
+            // DataListadoCargos
+            // 
+            DataListadoCargos.AllowUserToAddRows = false;
+            DataListadoCargos.AllowUserToDeleteRows = false;
+            DataListadoCargos.AllowUserToResizeRows = false;
+            DataListadoCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataListadoCargos.Location = new Point(978, 258);
+            DataListadoCargos.Name = "DataListadoCargos";
+            DataListadoCargos.RowTemplate.Height = 25;
+            DataListadoCargos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataListadoCargos.Size = new Size(338, 243);
+            DataListadoCargos.TabIndex = 36;
             // 
             // label2
             // 
@@ -525,6 +558,7 @@
             txtSueldo.Name = "txtSueldo";
             txtSueldo.Size = new Size(260, 22);
             txtSueldo.TabIndex = 34;
+            txtSueldo.KeyPress += txtSueldo_KeyPress;
             // 
             // txtCargo
             // 
@@ -533,6 +567,7 @@
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(260, 22);
             txtCargo.TabIndex = 33;
+            txtCargo.TextChanged += txtCargo_TextChanged;
             // 
             // txtIdentificacion
             // 
@@ -549,20 +584,6 @@
             txtNombres.Name = "txtNombres";
             txtNombres.Size = new Size(260, 22);
             txtNombres.TabIndex = 31;
-            // 
-            // datalistadocargo
-            // 
-            datalistadocargo.AllowUserToAddRows = false;
-            datalistadocargo.AllowUserToDeleteRows = false;
-            datalistadocargo.AllowUserToResizeRows = false;
-            datalistadocargo.BackgroundColor = SystemColors.InactiveCaption;
-            datalistadocargo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            datalistadocargo.Location = new Point(996, 258);
-            datalistadocargo.Name = "datalistadocargo";
-            datalistadocargo.RowTemplate.Height = 25;
-            datalistadocargo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            datalistadocargo.Size = new Size(298, 243);
-            datalistadocargo.TabIndex = 36;
             // 
             // Personal
             // 
@@ -584,7 +605,7 @@
             PanelCargos.PerformLayout();
             PanelRegistro.ResumeLayout(false);
             PanelRegistro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)datalistadocargo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataListadoCargos).EndInit();
             ResumeLayout(false);
         }
 
@@ -603,14 +624,13 @@
         private Button button8;
         private Button button13;
         private PictureBox PbBuscar;
-        private Button button2;
         private Button BtnGuardarPersonal;
         private Button button7;
         private Button BtnGuardarCambios;
         private Button button5;
         private Button button6;
         private Panel PanelCargos;
-        private Button button12;
+        private Button BtnGuardarC;
         private FlowLayoutPanel flowLayoutPanel7;
         private Label lblAgregarPersonal;
         private FlowLayoutPanel flowLayoutPanel4;
@@ -634,6 +654,8 @@
         private Label label2;
         private TextBox txtSueldog;
         private TextBox txtCargog;
-        private DataGridView datalistadocargo;
+        private DataGridView DataListadoCargos;
+        private Button btnAgregarCargo;
+        private Button btnGuardarCambiosC;
     }
 }

@@ -35,7 +35,7 @@ namespace SistemaAsistencias.Presentacion
             txtIdentificacion.Clear();
             txtSueldo.Clear();
             txtCargo.Clear();
-
+            BuscarCargo();
         }
 
 
@@ -64,21 +64,72 @@ namespace SistemaAsistencias.Presentacion
 
         private void Insertar_cargos()
         {
-            Lcargo parametros = new Lcargo();
-            DCargo funcion = new DCargo();
-            parametros.Nombre_cargo = txtCargog.Text;
-            parametros.Sueldo_por_hora = Convert.ToDouble(txtSueldog.Text);
-            if (funcion.InsertarCargo(parametros) == true)
+            if (!string.IsNullOrEmpty(txtCargog.Text))
             {
-                txtCargo.Clear();
+                if (!string.IsNullOrEmpty(txtSueldog.Text))
+                {
+                    Lcargo parametros = new Lcargo();
+                    DCargo funcion = new DCargo();
+                    parametros.Nombre_cargo = txtCargog.Text;
+                    parametros.Sueldo_por_hora = Convert.ToDouble(txtSueldog.Text);
+                    if (funcion.InsertarCargo(parametros) == true)
+                    {
+                        txtCargo.Clear();
+                        BuscarCargo();
+                        PanelCargos.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Agrege el Sueldo", "Falta el Sueldo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Agrege el cargo", "Falta el Cargo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
+
+
         private void BuscarCargo()
         {
             DataTable dt = new DataTable();
             DCargo funcion = new DCargo();
             funcion.BuscarCargo(ref dt, txtCargo.Text);
-            datalistadocargo.DataSource = dt;
+            DataListadoCargos.DataSource = dt;
+            bases.DiseñoDtv(ref DataListadoCargos);
+        }
+
+        private void txtCargo_TextChanged(object sender, EventArgs e)
+        {
+            BuscarCargo();
+        }
+
+        private void btnAgregarCargo_Click(object sender, EventArgs e)
+        {
+            PanelCargos.Visible = true;
+            PanelCargos.Dock = DockStyle.Fill;
+            PanelCargos.BringToFront();
+            BtnGuardarC.Visible = true;
+            btnGuardarCambiosC.Visible = false;
+            txtSueldog.Clear();
+            txtCargog.Clear();
+        }
+
+        private void BtnGuardarC_Click(object sender, EventArgs e)
+        {
+            Insertar_cargos();
+        }
+
+        private void txtSueldog_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bases.Decimales(txtSueldog, e);
+        }
+
+        private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bases.Decimales(txtSueldo, e);
         }
     }
 }

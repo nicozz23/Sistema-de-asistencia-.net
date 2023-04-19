@@ -39,12 +39,12 @@ namespace SistemaAsistencias.Datos
         {
             try
             {
-                //              
+                              
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("EditarCargo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", parametros.Id_cargo);
-                cmd.Parameters.AddWithValue("@@NombreCargo", parametros.Nombre_cargo);
+                cmd.Parameters.AddWithValue("@NombreCargo", parametros.Nombre_cargo);
                 cmd.Parameters.AddWithValue("@Sueldo", parametros.Sueldo_por_hora);
       
                 cmd.ExecuteNonQuery();
