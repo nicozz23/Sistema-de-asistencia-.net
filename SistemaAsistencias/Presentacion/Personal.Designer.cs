@@ -45,8 +45,6 @@
             BtnGuardarPersonal = new Button();
             button7 = new Button();
             BtnGuardarCambios = new Button();
-            button5 = new Button();
-            button6 = new Button();
             PanelCargos = new Panel();
             btnGuardarCambiosC = new Button();
             txtSueldog = new TextBox();
@@ -58,15 +56,16 @@
             label11 = new Label();
             flowLayoutPanel11 = new FlowLayoutPanel();
             flowLayoutPanel10 = new FlowLayoutPanel();
-            flowLayoutPanel9 = new FlowLayoutPanel();
+            Panel9 = new FlowLayoutPanel();
             flowLayoutPanel8 = new FlowLayoutPanel();
             cmbPais = new ComboBox();
             label17 = new Label();
             label16 = new Label();
             label15 = new Label();
             label14 = new Label();
-            label13 = new Label();
+            lblSueldo = new Label();
             PanelRegistro = new Panel();
+            panelBtnPersonal = new Panel();
             btnAgregarCargo = new Button();
             DataListadoCargos = new DataGridView();
             label2 = new Label();
@@ -74,6 +73,7 @@
             txtCargo = new TextBox();
             txtIdentificacion = new TextBox();
             txtNombres = new TextBox();
+            EditarC = new DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -81,6 +81,7 @@
             panel7.SuspendLayout();
             PanelCargos.SuspendLayout();
             PanelRegistro.SuspendLayout();
+            panelBtnPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataListadoCargos).BeginInit();
             SuspendLayout();
             // 
@@ -233,7 +234,7 @@
             BtnGuardarPersonal.FlatStyle = FlatStyle.Flat;
             BtnGuardarPersonal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnGuardarPersonal.ForeColor = Color.White;
-            BtnGuardarPersonal.Location = new Point(426, 588);
+            BtnGuardarPersonal.Location = new Point(31, 30);
             BtnGuardarPersonal.Name = "BtnGuardarPersonal";
             BtnGuardarPersonal.Size = new Size(140, 41);
             BtnGuardarPersonal.TabIndex = 12;
@@ -264,42 +265,12 @@
             BtnGuardarCambios.FlatStyle = FlatStyle.Flat;
             BtnGuardarCambios.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnGuardarCambios.ForeColor = Color.White;
-            BtnGuardarCambios.Location = new Point(637, 588);
+            BtnGuardarCambios.Location = new Point(201, 30);
             BtnGuardarCambios.Name = "BtnGuardarCambios";
             BtnGuardarCambios.Size = new Size(140, 41);
             BtnGuardarCambios.TabIndex = 17;
             BtnGuardarCambios.Text = "Guardar*";
             BtnGuardarCambios.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.BackgroundImage = (Image)resources.GetObject("button5.BackgroundImage");
-            button5.BackgroundImageLayout = ImageLayout.Stretch;
-            button5.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.ForeColor = Color.White;
-            button5.Location = new Point(882, 588);
-            button5.Name = "button5";
-            button5.Size = new Size(140, 41);
-            button5.TabIndex = 18;
-            button5.Text = "Guardar";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.BackgroundImage = (Image)resources.GetObject("button6.BackgroundImage");
-            button6.BackgroundImageLayout = ImageLayout.Stretch;
-            button6.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(1121, 588);
-            button6.Name = "button6";
-            button6.Size = new Size(140, 41);
-            button6.TabIndex = 19;
-            button6.Text = "Guardar";
-            button6.UseVisualStyleBackColor = true;
             // 
             // PanelCargos
             // 
@@ -415,13 +386,13 @@
             flowLayoutPanel10.Size = new Size(260, 1);
             flowLayoutPanel10.TabIndex = 22;
             // 
-            // flowLayoutPanel9
+            // Panel9
             // 
-            flowLayoutPanel9.BackColor = Color.Navy;
-            flowLayoutPanel9.Location = new Point(501, 405);
-            flowLayoutPanel9.Name = "flowLayoutPanel9";
-            flowLayoutPanel9.Size = new Size(260, 1);
-            flowLayoutPanel9.TabIndex = 23;
+            Panel9.BackColor = Color.Navy;
+            Panel9.Location = new Point(501, 405);
+            Panel9.Name = "Panel9";
+            Panel9.Size = new Size(260, 1);
+            Panel9.TabIndex = 23;
             // 
             // flowLayoutPanel8
             // 
@@ -476,18 +447,19 @@
             label14.TabIndex = 29;
             label14.Text = "Cargo:";
             // 
-            // label13
+            // lblSueldo
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(310, 431);
-            label13.Name = "label13";
-            label13.Size = new Size(125, 21);
-            label13.TabIndex = 30;
-            label13.Text = "Sueldo por hora:";
+            lblSueldo.AutoSize = true;
+            lblSueldo.Location = new Point(310, 431);
+            lblSueldo.Name = "lblSueldo";
+            lblSueldo.Size = new Size(125, 21);
+            lblSueldo.TabIndex = 30;
+            lblSueldo.Text = "Sueldo por hora:";
             // 
             // PanelRegistro
             // 
             PanelRegistro.BackColor = SystemColors.ButtonHighlight;
+            PanelRegistro.Controls.Add(panelBtnPersonal);
             PanelRegistro.Controls.Add(btnAgregarCargo);
             PanelRegistro.Controls.Add(DataListadoCargos);
             PanelRegistro.Controls.Add(label2);
@@ -495,28 +467,33 @@
             PanelRegistro.Controls.Add(txtCargo);
             PanelRegistro.Controls.Add(txtIdentificacion);
             PanelRegistro.Controls.Add(txtNombres);
-            PanelRegistro.Controls.Add(label13);
+            PanelRegistro.Controls.Add(lblSueldo);
             PanelRegistro.Controls.Add(label14);
             PanelRegistro.Controls.Add(label15);
             PanelRegistro.Controls.Add(label16);
             PanelRegistro.Controls.Add(label17);
             PanelRegistro.Controls.Add(cmbPais);
             PanelRegistro.Controls.Add(flowLayoutPanel8);
-            PanelRegistro.Controls.Add(flowLayoutPanel9);
+            PanelRegistro.Controls.Add(Panel9);
             PanelRegistro.Controls.Add(flowLayoutPanel10);
             PanelRegistro.Controls.Add(flowLayoutPanel11);
             PanelRegistro.Controls.Add(PanelCargos);
-            PanelRegistro.Controls.Add(button6);
-            PanelRegistro.Controls.Add(button5);
-            PanelRegistro.Controls.Add(BtnGuardarCambios);
             PanelRegistro.Controls.Add(button7);
-            PanelRegistro.Controls.Add(BtnGuardarPersonal);
             PanelRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PanelRegistro.Location = new Point(67, 116);
             PanelRegistro.Name = "PanelRegistro";
             PanelRegistro.Size = new Size(2047, 1165);
             PanelRegistro.TabIndex = 3;
             PanelRegistro.Paint += PanelRegistro_Paint;
+            // 
+            // panelBtnPersonal
+            // 
+            panelBtnPersonal.Controls.Add(BtnGuardarPersonal);
+            panelBtnPersonal.Controls.Add(BtnGuardarCambios);
+            panelBtnPersonal.Location = new Point(446, 493);
+            panelBtnPersonal.Name = "panelBtnPersonal";
+            panelBtnPersonal.Size = new Size(370, 100);
+            panelBtnPersonal.TabIndex = 38;
             // 
             // btnAgregarCargo
             // 
@@ -534,12 +511,14 @@
             DataListadoCargos.AllowUserToDeleteRows = false;
             DataListadoCargos.AllowUserToResizeRows = false;
             DataListadoCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataListadoCargos.Location = new Point(978, 258);
+            DataListadoCargos.Columns.AddRange(new DataGridViewColumn[] { EditarC });
+            DataListadoCargos.Location = new Point(952, 276);
             DataListadoCargos.Name = "DataListadoCargos";
             DataListadoCargos.RowTemplate.Height = 25;
             DataListadoCargos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataListadoCargos.Size = new Size(338, 243);
+            DataListadoCargos.Size = new Size(260, 155);
             DataListadoCargos.TabIndex = 36;
+            DataListadoCargos.CellClick += DataListadoCargos_CellClick;
             // 
             // label2
             // 
@@ -585,6 +564,13 @@
             txtNombres.Size = new Size(260, 22);
             txtNombres.TabIndex = 31;
             // 
+            // EditarC
+            // 
+            EditarC.HeaderText = "";
+            EditarC.Image = Properties.Resources.lapiz;
+            EditarC.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            EditarC.Name = "EditarC";
+            // 
             // Personal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -605,6 +591,7 @@
             PanelCargos.PerformLayout();
             PanelRegistro.ResumeLayout(false);
             PanelRegistro.PerformLayout();
+            panelBtnPersonal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataListadoCargos).EndInit();
             ResumeLayout(false);
         }
@@ -627,8 +614,6 @@
         private Button BtnGuardarPersonal;
         private Button button7;
         private Button BtnGuardarCambios;
-        private Button button5;
-        private Button button6;
         private Panel PanelCargos;
         private Button BtnGuardarC;
         private FlowLayoutPanel flowLayoutPanel7;
@@ -637,14 +622,14 @@
         private Label label11;
         private FlowLayoutPanel flowLayoutPanel11;
         private FlowLayoutPanel flowLayoutPanel10;
-        private FlowLayoutPanel flowLayoutPanel9;
+        private FlowLayoutPanel Panel9;
         private FlowLayoutPanel flowLayoutPanel8;
         private ComboBox cmbPais;
         private Label label17;
         private Label label16;
         private Label label15;
         private Label label14;
-        private Label label13;
+        private Label lblSueldo;
         private Panel PanelRegistro;
         private Label label1;
         private TextBox txtSueldo;
@@ -657,5 +642,7 @@
         private DataGridView DataListadoCargos;
         private Button btnAgregarCargo;
         private Button btnGuardarCambiosC;
+        private Panel panelBtnPersonal;
+        private DataGridViewImageColumn EditarC;
     }
 }

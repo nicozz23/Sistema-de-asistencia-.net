@@ -12,6 +12,12 @@ namespace SistemaAsistencias.Logica
         {
             Listado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Listado.BackgroundColor = Color.White;
+            Listado.EnableHeadersVisualStyles = false;  
+            DataGridViewCellStyle cabecera = new DataGridViewCellStyle();
+            cabecera.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            Listado.ColumnHeadersDefaultCellStyle = cabecera;
+            
+            Listado.CellBorderStyle = DataGridViewCellBorderStyle.None;
         }
 
         public static object Decimales(TextBox Cajatexto, KeyPressEventArgs e)

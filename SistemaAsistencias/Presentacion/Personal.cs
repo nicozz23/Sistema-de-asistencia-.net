@@ -18,8 +18,10 @@ namespace SistemaAsistencias.Presentacion
         {
             InitializeComponent();
         }
+        int IdCargo;
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            LocalizarDtvCargo();
             PanelCargos.Visible = false;
             PanelPaginado.Visible = false;
             PanelRegistro.Visible = true;
@@ -28,7 +30,14 @@ namespace SistemaAsistencias.Presentacion
             BtnGuardarCambios.Visible = false;
             Limpiar();
         }
-
+        private void LocalizarDtvCargo()
+        {
+            DataListadoCargos.Location = new Point(Panel9.Location.X, Panel9.Location.Y);
+            DataListadoCargos.Size = new Size(260, 155);
+            DataListadoCargos.Visible = true;
+            lblSueldo.Visible = false;
+            panelBtnPersonal.Visible = false;
+        }
         private void Limpiar()
         {
             txtNombres.Clear();
@@ -131,5 +140,40 @@ namespace SistemaAsistencias.Presentacion
         {
             bases.Decimales(txtSueldo, e);
         }
+
+        private void DataListadoCargos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == DataListadoCargos.Columns["EditarC"].Index) 
+            {
+                ObtenerCargosParaEditar();
+            }
+            if (e.ColumnIndex == DataListadoCargos.Columns["Nombre_cargo"].Index)
+            {
+
+            }
+        }
+        
+        private void ObtenerDatosCargos()
+        {
+            IdCargo = Convert.ToInt32(DataListadoCargos.SelectedCells[1].Value);
+            txtCargo.Text = DataListadoCargos.SelectedCells[2].Value.ToString();
+            txtSueldo.Text = DataListadoCargos.SelectedCells[3].Value.ToString();
+           
+        }
+
+        private void ObtenerCargosParaEditar()
+        {
+            IdCargo = Convert.ToInt32(DataListadoCargos.SelectedCells[1].Value);
+            txtCargog.Text = DataListadoCargos.SelectedCells[2].Value.ToString();
+            txtSueldog.Text = DataListadoCargos.SelectedCells[3].Value.ToString();
+            BtnGuardarC.Visible = false;
+            btnGuardarCambiosC.Visible = false;
+            txtCargog.Focus();
+            txtCargog.SelectAll();
+            PanelCargos.Visible = true;
+            PanelCargos.Dock = DockStyle.Fill;
+            PanelCargos.BringToFront();
+        }
+
     }
 }
