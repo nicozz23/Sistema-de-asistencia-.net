@@ -39,10 +39,12 @@ namespace SistemaAsistencias.Presentacion
 
         private void BtnPersonal_Click(object sender, EventArgs e)
         {
+
             PanelPadre.Controls.Clear();
             Personal control = new Personal();
             control.Dock = DockStyle.Fill;
             PanelPadre.Controls.Add(control);
+            
         }
     }
 }
