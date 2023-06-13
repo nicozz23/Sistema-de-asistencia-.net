@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bryan\\.nuget\\packages\\": {}
+    "C:\\Users\\brpin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
+      "projectUniqueName": "C:\\Users\\brpin\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
       "projectName": "SistemaAsistencias",
-      "projectPath": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
-      "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bryan\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\obj\\",
+      "projectPath": "C:\\Users\\brpin\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\SistemaAsistencias.csproj",
+      "packagesPath": "C:\\Users\\brpin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\brpin\\Documents\\GitHub\\Sistema-de-asistencia-.net\\SistemaAsistencias\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brpin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -532,7 +532,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

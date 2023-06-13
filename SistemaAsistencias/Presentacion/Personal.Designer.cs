@@ -36,7 +36,8 @@
             BtnMostrar = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             txtBuscar = new TextBox();
-            dataGridView1 = new DataGridView();
+            dataListadoPersonal = new DataGridView();
+            adasda = new DataGridViewTextBoxColumn();
             PanelPaginado = new Panel();
             panel7 = new Panel();
             button1 = new Button();
@@ -76,9 +77,10 @@
             txtIdentificacion = new TextBox();
             txtNombres = new TextBox();
             panelBtnPersonal = new Panel();
+            dtPrueba = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbBuscar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataListadoPersonal).BeginInit();
             PanelPaginado.SuspendLayout();
             panel7.SuspendLayout();
             PanelCargos.SuspendLayout();
@@ -86,6 +88,7 @@
             PanelRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataListadoCargos).BeginInit();
             panelBtnPersonal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtPrueba).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -165,21 +168,28 @@
             txtBuscar.Size = new Size(260, 22);
             txtBuscar.TabIndex = 0;
             // 
-            // dataGridView1
+            // dataListadoPersonal
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.BackgroundColor = Color.MintCream;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 100);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(2184, 1319);
-            dataGridView1.TabIndex = 1;
+            dataListadoPersonal.AllowUserToAddRows = false;
+            dataListadoPersonal.AllowUserToDeleteRows = false;
+            dataListadoPersonal.AllowUserToResizeRows = false;
+            dataListadoPersonal.BackgroundColor = Color.Violet;
+            dataListadoPersonal.BorderStyle = BorderStyle.None;
+            dataListadoPersonal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataListadoPersonal.Columns.AddRange(new DataGridViewColumn[] { adasda });
+            dataListadoPersonal.Dock = DockStyle.Fill;
+            dataListadoPersonal.Location = new Point(0, 100);
+            dataListadoPersonal.Name = "dataListadoPersonal";
+            dataListadoPersonal.RowTemplate.Height = 25;
+            dataListadoPersonal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataListadoPersonal.Size = new Size(2184, 1319);
+            dataListadoPersonal.TabIndex = 1;
+            dataListadoPersonal.CellContentClick += dataListadoPersonal_CellContentClick;
+            // 
+            // adasda
+            // 
+            adasda.HeaderText = "Column1";
+            adasda.Name = "adasda";
             // 
             // PanelPaginado
             // 
@@ -241,7 +251,7 @@
             BtnGuardarPersonal.Name = "BtnGuardarPersonal";
             BtnGuardarPersonal.Size = new Size(140, 41);
             BtnGuardarPersonal.TabIndex = 12;
-            BtnGuardarPersonal.Text = "Guardar";
+            BtnGuardarPersonal.Text = "Guardarasd";
             BtnGuardarPersonal.UseVisualStyleBackColor = true;
             BtnGuardarPersonal.Click += BtnGuardarPersonal_Click;
             // 
@@ -510,9 +520,9 @@
             PanelRegistro.Controls.Add(BtnVolverPersonal);
             PanelRegistro.Controls.Add(panelBtnPersonal);
             PanelRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelRegistro.Location = new Point(67, 116);
+            PanelRegistro.Location = new Point(610, 116);
             PanelRegistro.Name = "PanelRegistro";
-            PanelRegistro.Size = new Size(2047, 1165);
+            PanelRegistro.Size = new Size(1504, 1165);
             PanelRegistro.TabIndex = 3;
             PanelRegistro.Paint += PanelRegistro_Paint;
             // 
@@ -598,25 +608,35 @@
             // 
             panelBtnPersonal.Controls.Add(BtnGuardarPersonal);
             panelBtnPersonal.Controls.Add(BtnGuardarCambios);
-            panelBtnPersonal.Location = new Point(807, 562);
+            panelBtnPersonal.Location = new Point(844, 583);
             panelBtnPersonal.Name = "panelBtnPersonal";
             panelBtnPersonal.Size = new Size(370, 100);
             panelBtnPersonal.TabIndex = 38;
+            // 
+            // dtPrueba
+            // 
+            dtPrueba.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtPrueba.Location = new Point(205, 868);
+            dtPrueba.Name = "dtPrueba";
+            dtPrueba.RowTemplate.Height = 25;
+            dtPrueba.Size = new Size(272, 126);
+            dtPrueba.TabIndex = 39;
             // 
             // Personal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dtPrueba);
             Controls.Add(PanelPaginado);
             Controls.Add(PanelRegistro);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataListadoPersonal);
             Controls.Add(panel1);
             Name = "Personal";
             Size = new Size(2184, 1419);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PbBuscar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataListadoPersonal).EndInit();
             PanelPaginado.ResumeLayout(false);
             panel7.ResumeLayout(false);
             PanelCargos.ResumeLayout(false);
@@ -626,17 +646,18 @@
             PanelRegistro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataListadoCargos).EndInit();
             panelBtnPersonal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtPrueba).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView dataListadoPersonal;
         private FlowLayoutPanel flowLayoutPanel1;
         private TextBox txtBuscar;
         private Button BtnMostrar;
-        private Label label6;
+
         private Button BtnAgregar;
         private Panel PanelPaginado;
         private Panel panel7;
@@ -679,5 +700,7 @@
         private DataGridViewImageColumn EditarC;
         private Panel PanelBtnCargos;
         private Button BtnVolverCargo;
+        private DataGridViewTextBoxColumn adasda;
+        private DataGridView dtPrueba;
     }
 }

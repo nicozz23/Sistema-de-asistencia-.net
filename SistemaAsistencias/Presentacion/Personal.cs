@@ -18,7 +18,17 @@ namespace SistemaAsistencias.Presentacion
         {
             InitializeComponent();
         }
-        int IdCargo;
+
+        int IdCargo = 0;
+        int desde = 1;
+        int hasta = 10;
+        int contador;
+        int Idpersonal;
+        private int items_pagina = 10;
+        string estado;
+        int total_paginas;
+
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             LocalizarDtvCargo();
@@ -59,7 +69,24 @@ namespace SistemaAsistencias.Presentacion
         private void BtnGuardarPersonal_Click(object sender, EventArgs e)
         {
 
+            if (!string.IsNullOrEmpty(txtNombres.Text))
+            {
+                if (!string.IsNullOrEmpty(txtIdentificacion.Text))
+                {
+                    if (!string.IsNullOrEmpty(cmbPais.Text))
+                    {
+                        if (IdCargo > 0)
+                        {
+                            if (!string.IsNullOrEmpty(txtSueldo.Text))
+                            {
+                                Insertar_Personal();
+                            }
+                        }
+                    }
+                }
+            }
         }
+        /*FUNCIONES INSERTAR */
         private void Insertar_Personal()
         {
             Lpersonal parametros = new Lpersonal();
@@ -67,9 +94,35 @@ namespace SistemaAsistencias.Presentacion
             parametros.Nombres = txtNombres.Text;
             parametros.Identificacion = txtIdentificacion.Text;
             parametros.Pais = cmbPais.Text;
+            parametros.Id_cargo = IdCargo;
+            parametros.Sueldo_por_hora = double.Parse(txtSueldo.Text);
 
+            if (funcion.InsertarPersonal(parametros) == true)
+            {
+                Mostrar_Personal();
+
+                PanelRegistro.Visible = false;
+            }
 
         }
+
+        /*MOSTRAR PERSONAL*/
+
+        private void Mostrar_Personal()
+        {
+            DataTable dt = new DataTable();
+            DPersonal funcion = new DPersonal();
+            funcion.MostrarPersonal(ref dt, desde, hasta);
+            DataListadoCargos.DataSource = dt;
+            DiseñarDtvPersonal();
+        }
+        private void DiseñarDtvPersonal()
+        {
+            bases.DiseñoDtv(ref dataListadoPersonal);
+            PanelPaginado.Visible = true;
+        }
+
+
 
         private void Insertar_cargos()
         {
@@ -112,6 +165,20 @@ namespace SistemaAsistencias.Presentacion
             DataListadoCargos.Columns[3].Visible = false;
             DataListadoCargos.Visible = true;
 
+        }
+        private void editarCargo()
+        {
+            Lcargo parametros = new Lcargo();
+            DCargo funcion = new DCargo();
+            parametros.Id_cargo = IdCargo;
+            parametros.Nombre_cargo = txtCargog.Text;
+            parametros.Sueldo_por_hora = double.Parse(txtSueldog.Text);
+            if (funcion.EditarCargo(parametros) == true)
+            {
+                txtCargo.Clear();
+                BuscarCargo();
+                PanelCargos.Visible = false;
+            }
         }
 
         private void txtCargo_TextChanged(object sender, EventArgs e)
@@ -196,24 +263,16 @@ namespace SistemaAsistencias.Presentacion
         {
             editarCargo();
         }
-        private void editarCargo()
-        {
-            Lcargo parametros = new Lcargo();
-            DCargo funcion = new DCargo();
-            parametros.Id_cargo = IdCargo;
-            parametros.Nombre_cargo = txtCargog.Text;
-            parametros.Sueldo_por_hora = double.Parse(txtSueldog.Text);
-            if (funcion.EditarCargo(parametros) == true)
-            {
-                txtCargo.Clear();
-                BuscarCargo();
-                PanelCargos.Visible = false;
-            }
-        }
+
 
         private void txtSueldo_TextChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void dataListadoPersonal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
